@@ -12,5 +12,5 @@ console.log("Manorooban");
 // console.log(OperatingSystem.extname(__filename));
 // console.log(OperatingSystem.parse(__filename));
  
-//const Addition = require('./Math');
-//console.log(Addition.add(50,35));
+const Addition = require('./Math');
+console.log(Addition.add(50,35));
