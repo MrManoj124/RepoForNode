@@ -14,3 +14,7 @@ console.log("Manorooban");
  
 const Addition = require('./Math');
 console.log(Addition.add(50,35));
+console.log(Addition.subtract(50,35));
+console.log(Addition.multiply(50,35));
+console.log(Addition.divide(50,35));
+
