@@ -26,5 +26,7 @@ console.log(Addition.divide(50,35));
 // console.log(add(50, 35));
 // console.log(subtract(50, 35));
 // console.log(multiply(50, 35));
-// console.log(divide(50, 35));    
+// console.log(divide(50, 35));   
+
+
 
