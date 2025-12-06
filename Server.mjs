@@ -22,16 +22,15 @@ import os from 'os';
 console.log(os.type());
 console.log(os.version());
 
-import path from 'path';
-console.log(path.dirname(__dirname));
-console.log(path.basename(__filename));
-console.log(path.extname(__filename));
-console.log(path.parse(__filename));
+// import path from 'path';
+// console.log(path.dirname(__dirname));
+// console.log(path.basename(__filename));
+// console.log(path.extname(__filename));
+// console.log(path.parse(__filename));
 
-import { add, subtract, multiply, divide } from './Math.mjs';
+import { add, subtract, multiply, divide } from './Math.js';
 console.log(add(50, 35));
 console.log(subtract(50, 35));
 console.log(multiply(50, 35));
 console.log(divide(50, 35));    
-
 
