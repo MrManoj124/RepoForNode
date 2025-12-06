@@ -22,3 +22,9 @@ import os from 'os';
 console.log(os.type());
 console.log(os.version());
 
+import path from 'path';
+console.log(path.dirname(__dirname));
+console.log(path.basename(__filename));
+console.log(path.extname(__filename));
+console.log(path.parse(__filename));
+
