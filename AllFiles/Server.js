@@ -29,7 +29,7 @@ console.log(Addition.divide(50,35));
 // console.log(divide(50, 35));   
 
 const Readfile = require('./ReadWrite');
-console.log(Readfile.readfile());
+Readfile.readfile();
 
 
 const http = require('http');
