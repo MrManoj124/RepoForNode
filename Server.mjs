@@ -28,3 +28,10 @@ console.log(path.basename(__filename));
 console.log(path.extname(__filename));
 console.log(path.parse(__filename));
 
+import { add, subtract, multiply, divide } from './Math.mjs';
+console.log(add(50, 35));
+console.log(subtract(50, 35));
+console.log(multiply(50, 35));
+console.log(divide(50, 35));    
+
+
