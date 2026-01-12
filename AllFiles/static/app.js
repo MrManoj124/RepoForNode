@@ -18,6 +18,7 @@ const populateProducts = async (category) => {
   }
 }
 
+
 const category = document.querySelector('#category')
 
 category.addEventListener('input', async ({ target }) => {
