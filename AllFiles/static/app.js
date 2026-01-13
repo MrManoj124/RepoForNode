@@ -41,7 +41,6 @@ add.addEventListener('submit', async (e) => {
   await populateProducts(category.value, 'POST', payload)
   target.reset()
 })
-
 customElements.define('product-item', class Item extends HTMLElement {
   constructor() {
     super()

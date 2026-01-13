@@ -20,6 +20,7 @@ module.exports = async function (fastify, opts) {
     dir: path.join(__dirname, 'plugins'),
     options: Object.assign({}, opts)
   })
+  
 
   // This loads all plugins defined in routes
   // define your routes in one of these
@@ -28,5 +29,6 @@ module.exports = async function (fastify, opts) {
     options: Object.assign({}, opts)
   })
 }
+
 
 module.exports.options = options
