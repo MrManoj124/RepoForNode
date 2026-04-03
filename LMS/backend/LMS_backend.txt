@@ -7,3 +7,12 @@ Concepts (DSA, OS, DBMS…)
 Courses, lessons, progress tracking
 Quizzes & assessments
 User roles (student, instructor, admin)
+
+🧠 ARCHITECTURE OVERVIEW
+Frontend (React)
+        ↓
+Backend (Node.js + Express)
+        ↓
+Database (MongoDB)
+        ↓
+Realtime (optional - Socket.IO for live classes/chat)
