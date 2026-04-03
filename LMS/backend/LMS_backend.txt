@@ -72,3 +72,39 @@ backend/
 │
 └── constants/
     └── roles.js
+
+
+
+🎨 3. FRONTEND STRUCTURE (React)
+frontend/
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   ├── Navbar.js
+│   │   ├── CourseCard.js
+│   │   ├── LessonPlayer.js
+│   │   └── QuizComponent.js
+│   │
+│   ├── pages/
+│   │   ├── Home.js
+│   │   ├── Login.js
+│   │   ├── Register.js
+│   │   ├── Dashboard.js
+│   │   ├── Courses.js
+│   │   ├── CourseDetails.js
+│   │   └── LessonView.js
+│   │
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── authService.js
+│   │   └── courseService.js
+│   │
+│   ├── context/
+│   │   └── AuthContext.js
+│   │
+│   ├── hooks/
+│   │   └── useAuth.js
+│   │
+│   └── App.js
