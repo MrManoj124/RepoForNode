@@ -7,3 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+//Routes
+app.get("/", (req,res) => {
+    res.send("LMS API is running...");
+});
