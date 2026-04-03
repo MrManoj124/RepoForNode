@@ -16,3 +16,59 @@ Backend (Node.js + Express)
 Database (MongoDB)
         ↓
 Realtime (optional - Socket.IO for live classes/chat)
+
+
+⚙️ 2. BACKEND STRUCTURE (CORE FOCUS)
+backend/
+│
+├── server.js              # Entry point
+├── app.js                 # Express config
+│
+├── config/
+│   ├── db.js              # MongoDB connection
+│   └── env.js             # Environment config
+│
+├── models/                # Database schemas
+│   ├── User.js
+│   ├── Course.js
+│   ├── Lesson.js
+│   ├── Enrollment.js
+│   ├── Progress.js
+│   ├── Quiz.js
+│   └── Result.js
+│
+├── controllers/           # Business logic
+│   ├── authController.js
+│   ├── userController.js
+│   ├── courseController.js
+│   ├── lessonController.js
+│   ├── enrollmentController.js
+│   ├── progressController.js
+│   └── quizController.js
+│
+├── routes/                # API routes
+│   ├── authRoutes.js
+│   ├── userRoutes.js
+│   ├── courseRoutes.js
+│   ├── lessonRoutes.js
+│   ├── enrollmentRoutes.js
+│   ├── progressRoutes.js
+│   └── quizRoutes.js
+│
+├── middleware/            # Custom middleware
+│   ├── authMiddleware.js
+│   ├── roleMiddleware.js
+│   └── errorMiddleware.js
+│
+├── services/              # Advanced logic layer
+│   ├── courseService.js
+│   ├── progressService.js
+│   └── notificationService.js
+│
+├── utils/
+│   ├── generateToken.js
+│   ├── hashPassword.js
+│   └── validators.js
+│
+└── constants/
+    └── roles.js
