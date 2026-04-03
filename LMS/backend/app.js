@@ -12,3 +12,6 @@ app.use(express.json());
 app.get("/", (req,res) => {
     res.send("LMS API is running...");
 });
+
+module.exports = app;
+
