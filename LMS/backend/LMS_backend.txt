@@ -108,3 +108,34 @@ frontend/
 │   │   └── useAuth.js
 │   │
 │   └── App.js
+
+
+
+
+🗄 4. DATABASE DESIGN (MENTAL MODEL)
+Core Entities
+👤 User
+name
+email
+password
+role (student / instructor / admin)
+📚 Course
+title
+description
+category (DSA, Web, AI…)
+instructor
+🎥 Lesson
+courseId
+title
+videoURL / content
+order
+🧾 Enrollment
+userId
+courseId
+📊 Progress
+userId
+courseId
+completedLessons
+📝 Quiz
+courseId / lessonId
+questions
