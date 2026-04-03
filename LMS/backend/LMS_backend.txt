@@ -1,0 +1,9 @@
+🎯 System Scope
+
+Platform for:
+
+Programming languages (Java, Python, JS…)
+Concepts (DSA, OS, DBMS…)
+Courses, lessons, progress tracking
+Quizzes & assessments
+User roles (student, instructor, admin)
