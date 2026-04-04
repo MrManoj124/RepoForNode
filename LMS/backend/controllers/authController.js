@@ -30,5 +30,7 @@ exports.registerUser = async (req, res) => {
         token : generateToken(user._id)
     });
     }
-    catch
-}
+    catch(error){
+        res.status(500).json({message : "Server Error"});
+    }
+};
