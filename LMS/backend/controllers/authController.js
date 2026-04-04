@@ -37,7 +37,7 @@ exports.registerUser = async (req, res) => {
 
 
 //@ desc Login User
-exportsloginUser = async (req, res) => {
+exports.loginUser = async (req, res) => {
     try{
         const {email, password } = req.body;
 
@@ -55,7 +55,10 @@ exportsloginUser = async (req, res) => {
         }
         //Invalid email or password
         else{
-
+            re.status(401).json({message : "Invalid Email or Password"});
         }
     }
-}
+    catch(error){
+        res.status(500).json({message : "Server Error0"});
+    }
+};
