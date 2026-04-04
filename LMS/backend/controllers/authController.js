@@ -12,5 +12,11 @@ exports.registerUser = async (req, res) => {
     if(userExists){
         return res.status(400).json({message : "User Already Exists...!"});
     }
+
+    //Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcyrpt.hash(password, salt);
+
+    
     }
 }
