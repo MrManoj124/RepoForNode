@@ -37,7 +37,7 @@ exports.registerUser = async (req, res) => {
 
 
 //@ desc Login User
-exports.loginUser = async (req, res) => {
+exportsloginUser = async (req, res) => {
     try{
         const {email, password } = req.body;
 
@@ -45,6 +45,16 @@ exports.loginUser = async (req, res) => {
 
         //check user and password
         if(user && (await bcrypt.compare(password, user.password))){
+            res.json({
+               _id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                token: generateToken(user._id) 
+            });
+        }
+        //Invalid email or password
+        else{
 
         }
     }
