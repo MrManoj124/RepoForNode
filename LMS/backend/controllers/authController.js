@@ -4,5 +4,10 @@ const generateToken = require("../utils/generateToken");
 
 //@Desc Register user
 exports.registerUser = async (req, res) => {
+    try{
+        const {name, email, password, role} = req.body;
     
+    //check existing user
+    
+    }
 }
