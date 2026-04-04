@@ -39,6 +39,13 @@ exports.registerUser = async (req, res) => {
 //@ desc Login User
 exports.loginUser = async (req, res) => {
     try{
-        
+        const {email, password } = req.body;
+
+        const user = await User.findOne({email});
+
+        //check user and password
+        if(user && (await bcrypt.compare(password, user.password))){
+
+        }
     }
 }
