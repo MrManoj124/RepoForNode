@@ -22,6 +22,13 @@ exports.registerUser = async (req, res) => {
         name, email, password : hashedPassword, role
     });
 
-    
+    res.status(201).json({
+        _id : user._id,
+        name : user.name,
+        email : user.email,
+        role : user.role,
+        token : generateToken(user._id)
+    });
     }
+    catch
 }
