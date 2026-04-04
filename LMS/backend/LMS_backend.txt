@@ -139,3 +139,183 @@ completedLessons
 📝 Quiz
 courseId / lessonId
 questions
+
+
+
+//Phase 02
+Build:
+
+User Schema (MongoDB)
+Register API
+Login API
+Password hashing
+JWT authentication
+Role system (student / instructor / admin)
+
+
+STEP 1: Install Required Packages
+
+Using pnpm:
+
+pnpm add bcryptjs jsonwebtoken
+✅ STEP 2: Create User Model
+📄 models/User.js
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ["student", "instructor", "admin"],
+        default: "student"
+    }
+}, { timestamps: true });
+
+module.exports = mongoose.model("User", userSchema);
+✅ STEP 3: Create JWT Utility
+📄 utils/generateToken.js
+const jwt = require("jsonwebtoken");
+
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: "7d"
+    });
+};
+
+module.exports = generateToken;
+✅ STEP 4: Create Auth Controller
+📄 controllers/authController.js
+const User = require("../models/User");
+const bcrypt = require("bcryptjs");
+const generateToken = require("../utils/generateToken");
+
+// @desc Register user
+exports.registerUser = async (req, res) => {
+    try {
+        const { name, email, password, role } = req.body;
+
+        // Check existing user
+        const userExists = await User.findOne({ email });
+        if (userExists) {
+            return res.status(400).json({ message: "User already exists" });
+        }
+
+        // Hash password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        // Create user
+        const user = await User.create({
+            name,
+            email,
+            password: hashedPassword,
+            role
+        });
+
+        res.status(201).json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            token: generateToken(user._id)
+        });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// @desc Login user
+exports.loginUser = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const user = await User.findOne({ email });
+
+        if (user && (await bcrypt.compare(password, user.password))) {
+            res.json({
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                token: generateToken(user._id)
+            });
+        } else {
+            res.status(401).json({ message: "Invalid email or password" });
+        }
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+✅ STEP 5: Create Routes
+📄 routes/authRoutes.js
+const express = require("express");
+const router = express.Router();
+const { registerUser, loginUser } = require("../controllers/authController");
+
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+
+module.exports = router;
+✅ STEP 6: Connect Routes to App
+Update app.js
+const authRoutes = require("./routes/authRoutes");
+
+app.use("/api/auth", authRoutes);
+✅ STEP 7: Add JWT Secret
+📄 .env
+JWT_SECRET=supersecretkey
+✅ STEP 8: Test APIs (VERY IMPORTANT)
+
+Use Postman / Thunder Client.
+
+🔹 Register
+POST http://localhost:5000/api/auth/register
+
+Body:
+
+{
+  "name": "Manoj",
+  "email": "manoj@test.com",
+  "password": "123456",
+  "role": "student"
+}
+🔹 Login
+POST http://localhost:5000/api/auth/login
+
+Body:
+
+{
+  "email": "manoj@test.com",
+  "password": "123456"
+}
+✅ Expected Response
+{
+  "_id": "...",
+  "name": "Manoj",
+  "email": "manoj@test.com",
+  "role": "student",
+  "token": "JWT_TOKEN"
+}
+🧠 What You Just Built
+
+✔ User database model
+✔ Password encryption (bcrypt)
+✔ JWT authentication
+✔ Role-based system
+✔ Clean controller architecture
+
+👉 This is real backend engineering.
